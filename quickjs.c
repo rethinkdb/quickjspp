@@ -24220,6 +24220,8 @@ static int js_parse_destructuring_element(JSParseState *s, int tok, int is_arg,
                         goto var_error;
                     opcode = OP_scope_get_var;
                     scope = s->cur_func->scope_level;
+                    label_lvalue = -1;
+                    depth_lvalue = 0;
                 } else {
                     if (js_parse_left_hand_side_expr(s))
                         return -1;
