@@ -54,7 +54,7 @@ workspace "quickjs-msvc"
 		systemversion "latest"
 
 	filter { }
-		targetdir ".bin/%{cfg.buildcfg}/"
+		targetdir ".bin/%{cfg.buildcfg}/%{cfg.platform }"
 		exceptionhandling "Off"
 		rtti "Off"
 		--vectorextensions "AVX2"
