@@ -1,3 +1,26 @@
+# RethinkDB fork of Quickjspp
+
+This is forked from https://github.com/c-smile/quickjspp , a fork of
+Fabrice Bellard's QuickJS that adds Windows support and other extras.
+
+The purpose of this branch is for inclusion into RethinkDB as its
+JavaScript engine, so that RethinkDB's Windows release can include the
+`r.js` command.
+
+It makes the following changes, relative to quickjspp:
+
+- This omits some of the c-smile commits relating to JSX and storage.
+  The purpose of this is to reduce the size of the changeset relative
+  to Bellard's QuickJS.
+
+- This applies some of Bellard's latest changes, at
+  https://github.com/bellard/quickjs , that were made after the most
+  recent release, 2021-03-27.  (This includes a bugfix commit.)
+
+- It has some other minor changes.
+
+The quickjspp README continues below...
+
 
 
 # QuickJS Javascript Engine 
