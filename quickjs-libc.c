@@ -65,7 +65,12 @@ typedef sig_t sighandler_t;
 #endif
 #endif /* __APPLE__ */
 
+#if defined(__FreeBSD__)
+typedef sig_t sighandler_t;
+extern char **environ;
 #endif
+
+#endif /* _WIN32 */
 
 #if !defined(_WIN32)
 /* enable the os.Worker API. IT relies on POSIX threads */
@@ -622,7 +627,7 @@ int js_module_set_import_meta(JSContext *ctx, JSValueConst func_val,
   #define NATIVE_LIBRARY_SUFFIX ".dll"
 #elif defined(__APPLE__)
   #define NATIVE_LIBRARY_SUFFIX ".dylib"
-#elif defined(__linux__)
+#elif defined(__linux__) || defined(__FreeBSD__)
   #define NATIVE_LIBRARY_SUFFIX ".so"
 #endif
 JSModuleDef *js_module_loader(JSContext *ctx,
